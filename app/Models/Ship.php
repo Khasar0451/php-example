@@ -28,6 +28,10 @@ class Ship{
         return self::$data;
     }
     public static function find($id){
-        return Arr::first(self::$data, fn($ship)=>$ship['id'] == $id);
+        $ship = Arr::first(self::$data, fn($ship)=>$ship['id'] == $id);
+        if (!$ship){
+            abort(404);
+        }
+        return $ship;   
     }
 }
