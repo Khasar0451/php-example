@@ -1,11 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-Route::get('home', function () {
-    return view('home');
+use App\Models\Ship;
+Route::get('/', function () {
+    return view('home', [
+        'ships' => Ship::all()
+    ]);
 });
 
-Route::get('/photos', function () {
-    return view('photos');
+Route::get('/ship/{id}', function ($id) {
+    return view('ship',[
+        'ship'=> Ship::find($id)
+    ]);
 });
