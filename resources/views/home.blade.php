@@ -5,7 +5,7 @@
 
     @foreach ($ships as $ship)
         <a href="ship/{{$ship['id']}}" class="text-blue-900 hover:underline">
-            <li>{{$ship['type']}} in {{$ship['dock']}} </li>
+            <li>{{$ship['type']}} named {{$ship['name']}} </li>
         </a>
     @endforeach
 

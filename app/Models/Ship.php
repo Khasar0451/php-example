@@ -1,37 +1,12 @@
 <?php
 
 namespace App\Models;
-use Illuminate\Support\Arr;
-class Ship{
-    private static $data = [
-        [
-            "id"=> 1,
-            'type' => 'Escort',
-            'dock' => 'A2',
-            'name' => 'Distant Voyager',
-        ],
-                [
-                    'id'=> 2,
-            'type' => 'Escort',
-            'dock' => 'A3',
-            'name' => 'Distant Protector',
-                ],
-        [
-            'id'=> 3,
-            'type' => 'Destroyer',
-            'dock' => 'B5',
-            'name' => 'The Disruptor',
-        ]
 
-    ];
-    public static function all():array{
-        return self::$data;
-    }
-    public static function find($id){
-        $ship = Arr::first(self::$data, fn($ship)=>$ship['id'] == $id);
-        if (!$ship){
-            abort(404);
-        }
-        return $ship;   
-    }
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Ship extends Model
+{
+    use HasFactory;
+    protected $table = 'ships';
 }
