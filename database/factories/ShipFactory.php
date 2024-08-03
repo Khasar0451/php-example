@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-
+use App\Models\Dock;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Ship>
  */
@@ -19,7 +19,7 @@ class ShipFactory extends Factory
         return [
             'name' => $this->faker->streetName(),
             'type' => "Escort",
-            // 'dock' => "A1"
+            'dock_id' => Dock::factory(),
             //
         ];
     }

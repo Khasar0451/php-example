@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Ship;
 Route::get('/', function () {
+    print("XXX");
     return view('home', [
         'ships' => Ship::all()
     ]);
