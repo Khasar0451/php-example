@@ -15,13 +15,13 @@ class ShipController extends Controller
     public function create(){
         return view("ship.add");
     }
-    public function store(Request $request){
+    public function store(){
         Ship::create([
             "name"=> request('name'),
             'type' => request('type'),
             'dock_id' => 1,
         ]);
-        return redirect ()->route('ship-list');
+        return redirect ('/ship');
     }
     public function show(Ship $ship){
         return view('ship.details', ['ship' => $ship]);
