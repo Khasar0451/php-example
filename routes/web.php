@@ -2,27 +2,35 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Ship;
-Route::get("/ship/add", function () {
-    return view("ship.add");
-});
+use App\Http\Controllers\ShipController;
 
-Route::post("/ship/added", function () {
-    Ship::create([
-        "name"=> request('name'),
-        'type' => request('type'),
-        'dock_id' => 1,
-    ]);
-    return redirect ()->route('ship-list');
-});
-Route::get('/', function () {
-    return view('home', [
-        'ships' => Ship::all()
-    ]);
-})->name('ship-list');
+Route::resource("ship", ShipController::class);
 
-Route::get('/ship/{id}', function ($id) {
-    return view('ship',[
-        'ship'=> Ship::find($id)
-    ]);
-});
+// Route::get("/ship/add", [ShipController::class,"create"])   ;
+    //return view("ship.add");
+    
+
+// Route::post("/ship/added", function () {
+//     Ship::create([
+//         "name"=> request('name'),
+//         'type' => request('type'),
+//         'dock_id' => 1,
+//     ]);
+//     return redirect ()->route('ship-list');
+// });
+// Route::get('/', function () {
+//     return view('home', [
+//         'ships' => Ship::all()
+//     ]);
+// })->name('ship-list');
+
+
+// Route::get('/ships/{ship}', function (Ship $ship) {
+//     // return view('ship',[
+//     //     'ship'=> Ship::find($id)
+//     // ]);
+
+//     //convention (wildcard and parameter type)
+//     return view('ship.details', ['ship' => $ship]);
+// });
 

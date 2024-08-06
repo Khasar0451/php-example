@@ -3,7 +3,7 @@
         New ship docked!
     </x-slot:heading>
 
-    <form method = "POST" action="/ship/added">
+    <form method = "POST" action="/ship/store">
         @csrf
         <label for="type">Ship type:</label>
         <input type="text" name="type" id="type" placeholder="Escort">
