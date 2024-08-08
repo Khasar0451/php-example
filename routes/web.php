@@ -30,7 +30,7 @@ Route::get('/ship/{ship}/show', [ShipController::class,'show']);
 Route::get('/ship/{ship}/edit', [ShipController::class,'edit']);
 Route::patch('/ship/{ship}/update', [ShipController::class,'update']);
 
-Route::delete('/ship/{ship}/delete', [ShipController::class,'delete']);
+Route::delete('/ship/{ship}/delete', [ShipController::class,'destroy']);
 Route::get('/ship/create', [ShipController::class,'create']);
 Route::post('/ship/store', [ShipController::class,'store']);
 

@@ -37,7 +37,9 @@ class ShipController extends Controller
         ]);
         return redirect('/');
     }
-    public function destroy($id){
+    public function destroy(Ship $ship){
+        $ship->delete();
+        return redirect('/');
     }
 
 }
