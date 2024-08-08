@@ -19,9 +19,20 @@ Route::post("/ship/store", function () {
 
 
 
-Route::resource("ship", ShipController::class);
+//Route::resource("ship", ShipController::class);
 
+Route::get('/', [ShipController::class,'list']);
+Route::get('/ship', [ShipController::class,'list']);
 
+Route::get('/ship/create', [ShipController::class,'create']);
+Route::get('/ship/{ship}/show', [ShipController::class,'show']);
+
+Route::get('/ship/{ship}/edit', [ShipController::class,'edit']);
+Route::patch('/ship/{ship}/update', [ShipController::class,'update']);
+
+Route::delete('/ship/{ship}/delete', [ShipController::class,'delete']);
+Route::get('/ship/create', [ShipController::class,'create']);
+Route::post('/ship/store', [ShipController::class,'store']);
 
 // Route::get('/', function () {
 //     return view('home', [

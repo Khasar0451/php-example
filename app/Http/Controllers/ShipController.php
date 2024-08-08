@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Ship;
-
+use App\Models\Dock;
 class ShipController extends Controller
 {
-    public function index(){
-        return view('home', [
+    public function list(){
+        return view('ship.list', [
             'ships' => Ship::all()
         ]);
     }
@@ -21,14 +21,21 @@ class ShipController extends Controller
             'type' => request('type'),
             'dock_id' => 1,
         ]);
-        return redirect ('/ship');
+        return redirect ('/');
     }
     public function show(Ship $ship){
-        return view('ship.details', ['ship' => $ship]);
+        return view('ship.show', ['ship' => $ship]);
     }
-    public function edit($id){
+    public function edit(Ship $ship){
+        return view('ship.edit', ['ship' => $ship]);
     }
-    public function update(Request $request, $id){
+    public function update(Ship $ship){
+        $ship->update([
+            'name'=> request('name'),
+            'type'=> request('type'),
+            'dock_id'=> Dock::where('name', request('dock'))->firstOrFail()->id,
+        ]);
+        return redirect('/');
     }
     public function destroy($id){
     }
