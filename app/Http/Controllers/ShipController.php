@@ -33,7 +33,7 @@ class ShipController extends Controller
         $ship->update([
             'name'=> request('name'),
             'type'=> request('type'),
-            'dock_id'=> Dock::where('name', request('dock'))->firstOrFail()->id,
+            'dock_id'=> Dock::where('name', request('dock'))->firstOrCreate(['name' => request('dock')])->id,
         ]);
         return redirect('/');
     }

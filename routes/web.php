@@ -22,7 +22,7 @@ Route::post("/ship/store", function () {
 //Route::resource("ship", ShipController::class);
 
 Route::get('/', [ShipController::class,'list']);
-Route::get('/ship', [ShipController::class,'list']);
+// Route::get('/ship', [ShipController::class,'list']); --- its not the same, 
 
 Route::get('/ship/create', [ShipController::class,'create']);
 Route::get('/ship/{ship}/show', [ShipController::class,'show']);

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Dock extends Model
 {
+    protected $fillable = ['name'];
     use HasFactory;
     public function ship()
     {
