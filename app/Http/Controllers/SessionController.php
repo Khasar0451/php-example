@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 use Illuminate\Validation\ValidationException;
 
 class SessionController extends Controller
@@ -18,9 +19,8 @@ class SessionController extends Controller
             ]);
 
         if(!Auth::attempt($validated)){
-            dd(request()->all());
             throw ValidationException::withMessages([
-                "name"=> "Failure to comply",
+                'name'=> 'Failure to comply'
             ]);
         }
         request()->session()->regenerate();
