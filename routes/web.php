@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Ship;
 use App\Http\Controllers\ShipController;
-
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SessionController;
 // Route::get("/ship/add", [ShipController::class,"create"])   ;
     //return view("ship.add");
     
@@ -34,19 +35,8 @@ Route::delete('/ship/{ship}/delete', [ShipController::class,'destroy']);
 Route::get('/ship/create', [ShipController::class,'create']);
 Route::post('/ship/store', [ShipController::class,'store']);
 
-// Route::get('/', function () {
-//     return view('home', [
-//         'ships' => Ship::all()
-//     ]);
-// })->name('ship-list');
+Route::get('/register', [RegisterController::class, 'create']);
+Route::post('/register', [RegisterController::class, 'store']);
 
-
-// Route::get('/ships/{ship}', function (Ship $ship) {
-//     // return view('ship',[
-//     //     'ship'=> Ship::find($id)
-//     // ]);
-
-//     //convention (wildcard and parameter type)
-//     return view('ship.details', ['ship' => $ship]);
-// });
-
+Route::get('/login', [SessionController::class, 'create']);
+Route::post('/login', [SessionController::class, 'store']);
