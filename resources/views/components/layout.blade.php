@@ -12,7 +12,10 @@
         <script src="https://cdn.tailwindcss.com"></script>
         <!-- Styles -->
         <style>
-          
+        input {
+            border: 2px solid darkslateblue;            
+            border-radius: 4px;            
+        }
         </style>
     </head>
     <body>
@@ -49,7 +52,13 @@
                                             <x-nav-link href="/register" :active="request()->is('register')">Register</x-nav-link>
                                         @endguest
                                         @auth
-                                            <x-nav-link href="/logout">Logout</x-nav-link>                                            
+                                            <div class='text-white pb-1'>
+                                                 Hello, Commander {{Auth::user()->name}}
+                                            </div>
+                                            <form method="POST" action="/logout" class='text-center'>
+                                                @csrf
+                                                <x-button type="submit">Logout</x-button>                                            
+                                            </form>
                                         @endauth
                                     </div>
                                 </div>

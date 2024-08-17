@@ -5,11 +5,13 @@
 
     <form method = "POST" action="/login">
         @csrf
+
         <label for="name">Name:</label>
-        <input type="text" name="name" id="name">
-        <label for="pass">Password:</label>
-        <input type="password" name="pass" id="pass">
-        {{-- <button type="submit">Press here</button> --}}
+        <input type="text" name="name" id="name" :value="old('name')">
+
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password">
+        
         <x-button type="password">Press here</x-button>
     </form>
 </x-layout>
