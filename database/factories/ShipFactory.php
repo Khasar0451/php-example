@@ -20,7 +20,7 @@ class ShipFactory extends Factory
             'name' => $this->faker->streetName(),
             'type' => "Escort",
             'dock_id' => Dock::factory(),
-            //
+            
         ];
     }
 }
